@@ -1,0 +1,28 @@
+{
+  "created_by": "trader-exit",
+  "symbol": "KR",
+  "side": "buy",
+  "date": "2026-11-05",
+  "setup": "orb",
+  "entry": 71.07,
+  "entry_time": "10:10 AM",
+  "entry_bar": null,
+  "interval": "5m",
+  "opening_range": {
+    "high": 70.4,
+    "low": 69.37,
+    "minutes": 15
+  },
+  "stop": 69.88,
+  "stop_rule": "or_mid",
+  "stop_label": "opening-range midpoint",
+  "target": 73.45,
+  "target_r": 2.0,
+  "target_label": "2R (two times the risk)",
+  "risk_per_share": 1.19,
+  "reward_risk": 2.0,
+  "flat_by": "15:55",
+  "stop_detail": "($70.40 + $69.37) / 2 = $69.885, rounded down",
+  "created_at": "2026-11-05T15:11:39Z",
+  "note": "A stop is a plan, not a guarantee: a gap or a fast market can fill past it."
+}
