@@ -24,8 +24,17 @@ Aus dem Repo-Root starten. Keys aus `ALPACA_API_KEY` / `ALPACA_SECRET_KEY`
 für jeden der letzten 90 Handelstage nachgerechnet.
 
 Charts: offene Positionen, offene Orders, `trader/plan.json`,
-`trader/entry.json`, `--symbols`, dann die ersten `--top` (Standard 6)
+`trader/entry.json`, `--symbols`, dann die ersten `--top` (Standard 8)
 Treffer aus `trader/watchlist.json`.
+
+## Aussehen
+
+Dunkles Layout im TradingView-Stil: Kontoleiste oben, großer interaktiver
+Chart (TradingView Lightweight Charts 4.2.3 von jsDelivr, Umschalter 1T / 5m)
+mit Watchlist rechts zum Durchklicken, darunter Positionen und Orders
+(Bracket-Beine eingerückt). 1T: Kerzen, Volumen, MA20, 20-Tage-Hoch,
+Signal-Pfeile, Käufe/Verkäufe, Plan- und Order-Linien, HV20-Fenster darunter.
+5m: letzte 5 Sitzungen, Opening-Range-Hoch/-Tief der letzten Sitzung, Zeiten ET.
 
 ## Veröffentlichen
 

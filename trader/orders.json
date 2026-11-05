@@ -1,7 +1,7 @@
 {
   "created_by": "trader-budget",
-  "created_at": "2026-11-05T15:11:44Z",
-  "status": "proposed",
+  "created_at": "2026-11-05T15:28:12Z",
+  "status": "placed",
   "paper": true,
   "note": "Proposals only. Nothing is placed until trader-risk passes each order and you say yes to it in the chat.",
   "source": "trader/plan.json (KR orb 2026-11-05)",
@@ -10,8 +10,9 @@
       "symbol": "KR",
       "side": "buy",
       "qty": "8",
-      "type": "market",
+      "type": "limit",
       "time_in_force": "day",
+      "limit_price": "71.07",
       "order_class": "bracket",
       "take_profit_limit_price": "73.45",
       "stop_loss_stop_price": "69.88",
@@ -27,5 +28,10 @@
         "flat_by": "15:55"
       }
     }
-  ]
+  ],
+  "placed": {
+    "alpaca_order_id": "4e67baef-7c8d-4e29-98ce-c9d88503fce6",
+    "at_utc": "2026-11-05T15:29Z",
+    "note": "Noah sagte ja um 10:27 ET. Als Limit 71.07 statt Market, weil der Kurs bei 71.42 lag und Market den Max-Verlust ueber 10 $ gehoben haette."
+  }
 }
