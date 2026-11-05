@@ -1,0 +1,18 @@
+{
+  "trades": [
+    {
+      "date": "2026-11-05",
+      "symbol": "KR",
+      "setup": "orb",
+      "qty": 8,
+      "entry": 71.07,
+      "entry_time_et": "10:35",
+      "exit": 69.84,
+      "exit_time_et": "11:31",
+      "exit_reason": "stop",
+      "pnl": -9.84,
+      "r": -1.03,
+      "alpaca_order_id": "4e67baef-7c8d-4e29-98ce-c9d88503fce6"
+    }
+  ]
+}
