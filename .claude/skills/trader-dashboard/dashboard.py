@@ -137,9 +137,9 @@ def indicators(scan, bars):
 # ---------------------------------------------------------------- SVG chart
 
 
-def fetch_intraday(scan, sym):
-    """5-minute bars of the regular session over the last 5 days."""
-    s = scan.parse_chart(scan.yahoo_get(scan.chart_path(sym, "5d", "5m")), sym)
+def fetch_intraday(scan, sym, rng="5d", interval="5m"):
+    """Intraday bars of the regular session (5m over 5 days, 1m over 2 days)."""
+    s = scan.parse_chart(scan.yahoo_get(scan.chart_path(sym, rng, interval)), sym)
     out = []
     for i, ts in enumerate(s["t"]):
         o, h, l, c = (s[k][i] if s[k] else None for k in ("o", "h", "l", "c"))
@@ -169,7 +169,7 @@ SIG_SHORT = {"breakout_20d": "Ausbruch", "bull_flag": "Flagge", "reclaim_ma20": 
              "oversold": "RSI<30", "oversold_bounce": "Rebound"}
 
 
-def symbol_payload(sym, why, bars, ind, intraday, lines, fills, orders, today_done):
+def symbol_payload(sym, why, bars, ind, intraday, intraday1, lines, fills, orders, today_done):
     k0 = max(0, len(bars) - 160)
     B = bars[k0:]
     today = dt.datetime.now(ET).date().isoformat()
@@ -186,33 +186,39 @@ def symbol_payload(sym, why, bars, ind, intraday, lines, fills, orders, today_do
             continue
         for t in sorted(tags, key=SETUP_ORDER.index):
             daily["markers"].append({"time": b["d"], "position": "belowBar", "color": SIG_COLORS[t], "shape": "arrowUp", "text": ""})
-    intr = None
-    if intraday:
+    def build(intraday, bar_s):
+        if not intraday:
+            return None
         last_day = intraday[-1]["d"]
-        sess = [b for b in intraday if b["d"] == last_day]
-        orb = sess[:3]
-        intr = {
+        sess = [b for b in intraday if b["d"] == last_day and b["hm"] < "09:45"]
+        orb = sess
+        return {
             "candles": [{"time": et_chart_time(b["t"]), "open": r2(b["o"]), "high": r2(b["h"]), "low": r2(b["l"]), "close": r2(b["c"])} for b in intraday],
             "volume": [{"time": et_chart_time(b["t"]), "value": b["v"], "color": "rgba(8,153,129,.35)" if b["c"] >= b["o"] else "rgba(242,54,69,.35)"} for b in intraday],
-            "or_high": r2(max(b["h"] for b in orb)) if len(orb) == 3 else None,
-            "or_low": r2(min(b["l"] for b in orb)) if len(orb) == 3 else None,
-            "session": last_day,
+            "or_high": r2(max(b["h"] for b in orb)) if orb else None,
+            "or_low": r2(min(b["l"] for b in orb)) if orb else None,
+            "session": last_day, "bar_s": bar_s,
             "markers": [],
         }
+    intr = build(intraday, 300)
+    m1 = build(intraday1, 60)
     for f in fills:
         txt = ("K " if f["side"] == "buy" else "V ") + str(f["qty"])
         m = {"position": "belowBar" if f["side"] == "buy" else "aboveBar", "color": "#089981" if f["side"] == "buy" else "#f23645",
              "shape": "arrowUp" if f["side"] == "buy" else "arrowDown", "text": txt}
         daily["markers"].append(dict(m, time=f["date"]))
-        if intr:
-            ts = int(f["ts"] // 300 * 300)
-            intr["markers"].append(dict(m, time=et_chart_time(ts)))
+        for v in (intr, m1):
+            if v:
+                ts = int(f["ts"] // v["bar_s"] * v["bar_s"])
+                v["markers"].append(dict(m, time=et_chart_time(ts)))
     daily["markers"].sort(key=lambda m: m["time"])
-    if intr:
-        intr["markers"].sort(key=lambda m: m["time"])
+    for v in (intr, m1):
+        if v:
+            v["markers"].sort(key=lambda m: m["time"])
     last, prev = bars[-1], bars[-2]
-    price = intraday[-1]["c"] if intraday else last["c"]
-    ref = prev["c"] if last["d"] == (intraday[-1]["d"] if intraday else last["d"]) else last["c"]
+    live = intraday1 or intraday
+    price = live[-1]["c"] if live else last["c"]
+    ref = prev["c"] if last["d"] == (live[-1]["d"] if live else last["d"]) else last["c"]
     sig_now = []
     for b, tags in zip(reversed(bars), reversed(ind["sig"])):
         if b["d"] == today and not today_done:
@@ -226,7 +232,7 @@ def symbol_payload(sym, why, bars, ind, intraday, lines, fills, orders, today_do
         "hv": round(ind["hv20"][-1], 1) if ind["hv20"][-1] else None, "ma20": r2(ind["ma20"][-1]),
         "signals": [{"key": t, "label": SETUP_LABELS[t], "color": SIG_COLORS[t]} for t in sig_now],
         "lines": [{"price": v, "title": n, "kind": k} for k, (n, v) in lines.items() if v is not None] + orders,
-        "daily": daily, "intraday": intr,
+        "daily": daily, "intraday": intr, "m1": m1,
     }
 
 
@@ -303,8 +309,9 @@ function render(){
   const el = document.getElementById('chart'), hv = document.getElementById('hv');
   if (chart) chart.remove(); if (hvChart) { hvChart.remove(); hvChart = null; }
   el.innerHTML = ''; hv.innerHTML = '';
-  const intra = tf === 'I' && s.intraday;
-  const src = intra ? s.intraday : s.daily;
+  const iv = tf === 'M' ? s.m1 : tf === 'I' ? s.intraday : null;
+  const intra = !!iv;
+  const src = iv || s.daily;
   chart = base(el, el.clientHeight);
   const cs = chart.addCandlestickSeries({upColor:C.up, downColor:C.dn, borderVisible:false, wickUpColor:C.up, wickDownColor:C.dn});
   cs.setData(src.candles);
@@ -315,13 +322,13 @@ function render(){
     chart.addLineSeries({color:C.accent, lineWidth:1.5, lastValueVisible:false, priceLineVisible:false, crosshairMarkerVisible:false}).setData(s.daily.ma20);
     chart.addLineSeries({color:'#787b86', lineWidth:1, lineStyle:2, lineType:1, lastValueVisible:false, priceLineVisible:false, crosshairMarkerVisible:false}).setData(s.daily.hi20);
   } else {
-    if (s.intraday.or_high) cs.createPriceLine({price:s.intraday.or_high, color:LINE.or_high, lineWidth:1, lineStyle:1, axisLabelVisible:true, title:'OR-Hoch'});
-    if (s.intraday.or_low) cs.createPriceLine({price:s.intraday.or_low, color:LINE.or_low, lineWidth:1, lineStyle:1, axisLabelVisible:true, title:'OR-Tief'});
+    if (iv.or_high) cs.createPriceLine({price:iv.or_high, color:LINE.or_high, lineWidth:1, lineStyle:1, axisLabelVisible:true, title:'OR-Hoch'});
+    if (iv.or_low) cs.createPriceLine({price:iv.or_low, color:LINE.or_low, lineWidth:1, lineStyle:1, axisLabelVisible:true, title:'OR-Tief'});
   }
   for (const l of s.lines) cs.createPriceLine({price:l.price, color:LINE[l.kind] || C.text, lineWidth:1, lineStyle:2, axisLabelVisible:true, title:l.title});
   cs.setMarkers(src.markers);
   if (intra) {
-    const n = src.candles.length; chart.timeScale().setVisibleLogicalRange({from:Math.max(0, n - 160), to:n + 4});
+    const n = src.candles.length; chart.timeScale().setVisibleLogicalRange({from:Math.max(0, n - (tf === 'M' ? 200 : 160)), to:n + 4});
   } else {
     const n = src.candles.length; chart.timeScale().setVisibleLogicalRange({from:Math.max(0, n - 110), to:n + 4});
     hvChart = base(hv, hv.clientHeight);
@@ -340,10 +347,11 @@ function render(){
   const ch = document.getElementById('chg'); ch.textContent = (s.chg >= 0 ? '+' : '') + fmt(s.chg) + ' %'; ch.className = 'num ' + (s.chg >= 0 ? 'up' : 'dn');
   document.getElementById('why').textContent = s.why;
   document.getElementById('sigs').innerHTML = s.signals.length ? s.signals.map(g => `<span class="chip" style="color:${g.color}">${g.label}</span>`).join('') : '<span class="mute">kein Signal am letzten Schlusskurs</span>';
-  document.getElementById('st').innerHTML = `<span>RSI 14 <b>${fmt(s.rsi,1)}</b></span><span>ATR 14 <b>${fmt(s.atr)} $ (${fmt(s.atr_pct,1)} %)</b></span><span>HV20 <b>${fmt(s.hv,1)} %</b></span><span>MA20 <b>${fmt(s.ma20)}</b></span>` + (intra ? `<span>Sitzung <b>${s.intraday.session}</b>, Zeiten in ET</span>` : '');
+  document.getElementById('st').innerHTML = `<span>RSI 14 <b>${fmt(s.rsi,1)}</b></span><span>ATR 14 <b>${fmt(s.atr)} $ (${fmt(s.atr_pct,1)} %)</b></span><span>HV20 <b>${fmt(s.hv,1)} %</b></span><span>MA20 <b>${fmt(s.ma20)}</b></span>` + (intra ? `<span>Sitzung <b>${iv.session}</b>, Zeiten in ET</span>` : '');
   document.querySelectorAll('.wl tr.row').forEach((r, i) => r.setAttribute('aria-selected', i === cur));
   document.querySelectorAll('.tf button').forEach(b => b.setAttribute('aria-pressed', b.dataset.tf === tf));
   document.querySelector('.tf button[data-tf="I"]').disabled = !s.intraday;
+  document.querySelector('.tf button[data-tf="M"]').disabled = !s.m1;
 }
 
 if (!window.LightweightCharts) { document.getElementById('nolib').style.display = 'block'; }
@@ -415,7 +423,7 @@ def page(now, acct, symbols, watch, args):
     p.append('<div class="main"><div class="pane">'
              '<div class="head"><h1 id="sym"></h1><span class="px num" id="px"></span><span id="chg"></span>'
              '<span class="mute" id="why"></span><div class="chips" id="sigs"></div>'
-             '<div class="tf" role="group" aria-label="Zeiteinheit"><button type="button" data-tf="D">1T</button><button type="button" data-tf="I">5m</button></div></div>'
+             '<div class="tf" role="group" aria-label="Zeiteinheit"><button type="button" data-tf="M">1m</button><button type="button" data-tf="I">5m</button><button type="button" data-tf="D">1T</button></div></div>'
              '<div class="stats" id="st"></div>'
              '<div class="legend"><span><i style="background:#2962ff"></i>MA20</span><span><i style="border-top:1px dashed #787b86;height:0"></i>20-Tage-Hoch</span>'
              + "".join(f'<span><i style="background:{SIG_COLORS[k]};height:6px;width:6px;border-radius:50%"></i>{v}</span>' for k, v in SETUP_LABELS.items())
@@ -543,10 +551,14 @@ def main():
                 intr = fetch_intraday(scan, sym)
             except Exception:
                 intr = []
+            try:
+                intr1 = fetch_intraday(scan, sym, "2d", "1m")
+            except Exception:
+                intr1 = []
             lines = {"avg": ("Ø Einstand", avg.get(sym))}
             if plan_today and plan.get("symbol", "").upper() == sym:
                 lines.update(entry=("Einstieg", plan.get("entry")), stop=("Stop", plan.get("stop")), target=("Ziel", plan.get("target")))
-            symbols.append(symbol_payload(sym, why, bars, ind, intr, lines, fills_by.get(sym, []), order_lines.get(sym, []), today_done))
+            symbols.append(symbol_payload(sym, why, bars, ind, intr, intr1, lines, fills_by.get(sym, []), order_lines.get(sym, []), today_done))
             ok = "ok"
         except Exception as e:
             ok = str(e)

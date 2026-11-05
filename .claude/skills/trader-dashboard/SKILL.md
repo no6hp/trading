@@ -34,7 +34,7 @@ Chart (TradingView Lightweight Charts 4.2.3 von jsDelivr, Umschalter 1T / 5m)
 mit Watchlist rechts zum Durchklicken, darunter Positionen und Orders
 (Bracket-Beine eingerückt). 1T: Kerzen, Volumen, MA20, 20-Tage-Hoch,
 Signal-Pfeile, Käufe/Verkäufe, Plan- und Order-Linien, HV20-Fenster darunter.
-5m: letzte 5 Sitzungen, Opening-Range-Hoch/-Tief der letzten Sitzung, Zeiten ET.
+1m: letzte 2 Sitzungen, 5m: letzte 5 Sitzungen, Opening-Range-Hoch/-Tief der letzten Sitzung, Zeiten ET.
 
 ## Veröffentlichen
 
