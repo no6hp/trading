@@ -23,6 +23,10 @@ Keine Finanzberatung – die Skills rechnen nur mit öffentlichen Daten.
 8. `/trader-broker` – Ticket zeigen, Order **nur nach ausdrücklichem „ja"** des Nutzers
 9. `/trader-alerts` – Stop, Ziel, „flat by close" (`add --from-plan`, dann `check`)
 
+Dashboard: `/trader-dashboard` baut nach jedem Scan, Plan oder Trade die Konto- und
+Chart-Ansicht neu und veröffentlicht sie als neue Version desselben Artefakts
+(Slug in `trader/state/dashboard.json`).
+
 Regelmäßig daneben: `/trader-news` (Watchlist), `/trader-analyst` (Earnings),
 `/trader-pelosi` (Kongress-Trades).
 
