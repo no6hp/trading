@@ -295,7 +295,7 @@ const D = JSON.parse(document.getElementById('data').textContent);
 const C = {bg:'#1e222d', grid:'#2a2e39', text:'#787b86', up:'#089981', dn:'#f23645', accent:'#2962ff', vol:'#ab47bc'};
 const LINE = {entry:C.accent, stop:C.dn, target:C.up, avg:'#d1d4dc', order:C.warn || '#ff9800', or_high:'#787b86', or_low:'#787b86'};
 const fmt = (x, d=2) => x == null ? '–' : x.toLocaleString('de-DE', {minimumFractionDigits:d, maximumFractionDigits:d});
-let cur = 0, tf = 'D', chart, hvChart;
+let cur = 0, tf = 'D', chart, hvChart, cs, vs;
 
 function base(el, h){
   return LightweightCharts.createChart(el, {height:h, layout:{background:{color:C.bg}, textColor:C.text, fontSize:11},
@@ -313,9 +313,9 @@ function render(){
   const intra = !!iv;
   const src = iv || s.daily;
   chart = base(el, el.clientHeight);
-  const cs = chart.addCandlestickSeries({upColor:C.up, downColor:C.dn, borderVisible:false, wickUpColor:C.up, wickDownColor:C.dn});
+  cs = chart.addCandlestickSeries({upColor:C.up, downColor:C.dn, borderVisible:false, wickUpColor:C.up, wickDownColor:C.dn});
   cs.setData(src.candles);
-  const vs = chart.addHistogramSeries({priceScaleId:'vol', priceFormat:{type:'volume'}, lastValueVisible:false, priceLineVisible:false});
+  vs = chart.addHistogramSeries({priceScaleId:'vol', priceFormat:{type:'volume'}, lastValueVisible:false, priceLineVisible:false});
   chart.priceScale('vol').applyOptions({scaleMargins:{top:0.85, bottom:0}});
   vs.setData(src.volume);
   if (!intra) {
@@ -363,8 +363,170 @@ else {
   document.querySelectorAll('.tf button').forEach(b => b.addEventListener('click', () => { tf = b.dataset.tf; render(); }));
   let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(render, 150); });
   if (D.symbols.length) render();
+  startLive();
 }
 """
+
+LIVE_JS = r"""
+// ---------- live mode: Claude desktop app + local Alpaca MCP server (host:alpaca) ----------
+const SRV = 'host:alpaca';
+const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money = (x, sign) => x == null ? '–' : (sign ? (x >= 0 ? '+' : '−') : (x < 0 ? '−' : '')) + fmt(Math.abs(x)) + ' $';
+const pn = x => x > 0 ? 'up' : x < 0 ? 'dn' : '';
+const STATUS = {filled:'ausgeführt', new:'offen', accepted:'offen', pending_new:'offen', held:'wartet (Bracket)', partially_filled:'teilweise',
+  canceled:'storniert', expired:'verfallen', rejected:'abgelehnt', replaced:'ersetzt', done_for_day:'Tagesende'};
+const asList = p => Array.isArray(p) ? p : (p && Array.isArray(p.result) ? p.result : (p && Array.isArray(p.orders) ? p.orders : (p && Array.isArray(p.positions) ? p.positions : [])));
+let mcp = null, liveOk = false, lastLive = 0;
+
+function etParts(ms){
+  const f = new Intl.DateTimeFormat('en-US', {timeZone:'America/New_York', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hourCycle:'h23'});
+  const o = {}; for (const p of f.formatToParts(new Date(ms))) o[p.type] = p.value;
+  return o;
+}
+function etShift(ms){ // seconds on the chart axis that read as New York wall time
+  const o = etParts(ms);
+  return Math.floor(Date.UTC(+o.year, +o.month - 1, +o.day, +o.hour, +o.minute, +o.second) / 1000);
+}
+function hhmm(ms, tz){ return new Date(ms).toLocaleTimeString('de-DE', {timeZone:tz, hour:'2-digit', minute:'2-digit', second:'2-digit'}); }
+
+function setState(text, kind, title){
+  const el = document.getElementById('livestate');
+  el.textContent = text; el.className = 'tag' + (kind === 'live' ? ' live' : '');
+  el.style.color = kind === 'warn' ? 'var(--warn)' : kind === 'err' ? 'var(--dn)' : '';
+  if (title) el.title = title;
+}
+
+function handleErr(e){
+  const c = e && e.code;
+  if (c === 'server_not_connected') setState('Snapshot', '', 'Live geht nur in der Claude-Desktop-App mit dem lokalen Alpaca-Server. Läuft er nicht, Claude-App neu starten.');
+  else if (c === 'not_in_manifest' || c === 'approval_required' || c === 'cancelled') setState('Live nicht erlaubt', 'warn', 'Erlaube der Seite den Zugriff auf deinen lokalen Alpaca-Server, dann neu laden.');
+  else if (c === 'tool_error') setState('Alpaca-Fehler', 'err', (e.message || '').slice(0, 300));
+  else setState(liveOk ? 'Live (Verbindung hakt)' : 'Snapshot', liveOk ? 'warn' : '', (e && e.message) || '');
+  return c;
+}
+
+async function call(tool, input){
+  const r = await mcp.callTool(SRV, tool, input, {cache:false});
+  return r.payload;
+}
+
+// merge Alpaca bars into one symbol's arrays (and the live series when it is on screen)
+function mergeBars(s, key, bars, toTime){
+  const src = key === 'daily' ? s.daily : key === 'm1' ? s.m1 : s.intraday;
+  if (!src || !bars || !bars.length) return;
+  const visible = D.symbols[cur] === s && ((key === 'daily' && tf === 'D') || (key === 'm1' && tf === 'M') || (key === 'intraday' && tf === 'I'));
+  for (const b of bars) {
+    const t = toTime(b); if (t == null) continue;
+    const c = {time:t, open:b.o, high:b.h, low:b.l, close:b.c};
+    const v = {time:t, value:b.v, color: b.c >= b.o ? 'rgba(8,153,129,.35)' : 'rgba(242,54,69,.35)'};
+    const arr = src.candles, last = arr[arr.length - 1];
+    if (last && last.time === t) { arr[arr.length - 1] = c; src.volume[src.volume.length - 1] = v; }
+    else if (!last || t > last.time) { arr.push(c); src.volume.push(v); }
+    else continue;
+    if (visible && cs) { cs.update(c); vs.update(v); }
+  }
+}
+
+function inSession(ms){ const o = etParts(ms); const m = +o.hour * 60 + +o.minute; return m >= 570 && m < 960; }
+
+async function pollChart(){
+  const s = D.symbols[cur]; if (!s) return;
+  const now = Date.now();
+  const jobs = [];
+  if (tf === 'D') {
+    jobs.push(call('get_stock_bars', {symbols:s.sym, timeframe:'1Day', days:5, feed:'iex', limit:10}).then(p => {
+      const bars = (p && p.bars && p.bars[s.sym]) || [];
+      mergeBars(s, 'daily', bars, b => { const o = etParts(Date.parse(b.t) + 12 * 3600e3); return `${o.year}-${o.month}-${o.day}`; });
+    }));
+  } else {
+    const key = tf === 'M' ? 'm1' : 'intraday', tfa = tf === 'M' ? '1Min' : '5Min';
+    jobs.push(call('get_stock_bars', {symbols:s.sym, timeframe:tfa, hours:12, days:0, feed:'iex', limit:1000}).then(p => {
+      const bars = ((p && p.bars && p.bars[s.sym]) || []).filter(b => inSession(Date.parse(b.t)));
+      mergeBars(s, key, bars, b => etShift(Date.parse(b.t)));
+    }));
+  }
+  await Promise.all(jobs);
+}
+
+async function pollPrices(){
+  const syms = D.symbols.map(s => s.sym);
+  const p = await call('get_stock_bars', {symbols:syms.join(','), timeframe:'1Min', minutes:20, hours:0, days:0, feed:'iex', limit:1000});
+  const all = (p && p.bars) || {};
+  const rows = document.querySelectorAll('.wl tr.row');
+  D.symbols.forEach((s, i) => {
+    const b = all[s.sym]; if (!b || !b.length) return;
+    const px = b[b.length - 1].c;
+    const ref = s.price / (1 + s.chg / 100);
+    s.price = px; s.chg = (px / ref - 1) * 100;
+    const td = rows[i] && rows[i].querySelectorAll('td');
+    if (td) { td[1].textContent = fmt(px); td[2].textContent = (s.chg >= 0 ? '+' : '') + fmt(s.chg); td[2].className = 'r num ' + pn(s.chg); }
+    if (i === cur) {
+      document.getElementById('px').textContent = fmt(px) + ' $';
+      const ch = document.getElementById('chg'); ch.textContent = (s.chg >= 0 ? '+' : '') + fmt(s.chg) + ' %'; ch.className = 'num ' + (s.chg >= 0 ? 'up' : 'dn');
+    }
+  });
+}
+
+async function pollAccount(){
+  const [a, pos, ords] = await Promise.all([call('get_account_info', {}), call('get_all_positions', {}), call('get_orders', {status:'all', limit:30, nested:true, direction:'desc'})]);
+  if (a && a.equity) {
+    const eq = +a.equity, last = +(a.last_equity || a.equity), day = eq - last;
+    const P = asList(pos), upl = P.reduce((t, x) => t + +x.unrealized_pl, 0);
+    const kv = [['Depotwert', money(eq), ''], ['Heute', `${money(day, true)} (${fmt(last ? day / last * 100 : 0)} %)`, pn(day)], ['Unrealisiert', money(upl, true), pn(upl)],
+      ['Bargeld', money(+a.cash), ''], ['Kaufkraft', money(+a.buying_power), ''], ['Day-Trades 5T', String(a.daytrade_count ?? 0), '']];
+    document.getElementById('kvs').innerHTML = kv.map(([k, v, c]) => `<div class="kv"><span>${k}</span><b class="${c}">${v}</b></div>`).join('');
+  }
+  const P = asList(pos);
+  document.getElementById('posbox').innerHTML = P.length ? '<div class="tbl"><table><tr><th>Symbol</th><th class="r">Stück</th><th class="r">Ø Einstand</th><th class="r">Kurs</th><th class="r">Wert</th><th class="r">G/V</th><th class="r">G/V %</th></tr>' +
+    P.map(x => { const pl = +x.unrealized_pl, plp = +x.unrealized_plpc * 100; return `<tr><td><b>${esc(x.symbol)}</b></td><td class="r num">${esc(x.qty)}</td><td class="r num">${fmt(+x.avg_entry_price)}</td><td class="r num">${fmt(+x.current_price)}</td><td class="r num">${money(+x.market_value)}</td><td class="r num ${pn(pl)}">${money(pl, true)}</td><td class="r num ${pn(plp)}">${fmt(plp)} %</td></tr>`; }).join('') + '</table></div>'
+    : '<div class="empty">Keine offenen Positionen.</div>';
+  const O = asList(ords), rows = [];
+  for (const o of O) { rows.push(o); for (const l of (o.legs || [])) rows.push(Object.assign({}, l, {_leg:true})); }
+  document.getElementById('ordbox').innerHTML = rows.length ? '<div class="tbl"><table><tr><th>Zeit</th><th>Symbol</th><th>Seite</th><th>Typ</th><th class="r">Stück</th><th class="r">Limit / Stop</th><th class="r">Ausgeführt</th><th>Status</th></tr>' +
+    rows.map(o => {
+      const lim = o.limit_price || o.stop_price, st = o.status || '';
+      let typ = ({limit:'Limit', market:'Market', stop:'Stop', stop_limit:'Stop-Limit'})[o.type] || o.type || '';
+      if (o._leg) typ = '↳ ' + (o.type === 'limit' ? 'Ziel' : 'Stop'); else if (o.order_class === 'bracket') typ += ' · Bracket';
+      const t = o.submitted_at && !o._leg ? `${hhmm(Date.parse(o.submitted_at), 'America/New_York').slice(0,5)} ET · ${hhmm(Date.parse(o.submitted_at), 'Europe/Berlin').slice(0,5)} DE` : '';
+      const stc = st === 'filled' ? 'up' : ['canceled','rejected','expired'].includes(st) ? 'dn' : '';
+      return `<tr><td class="num mute">${t}</td><td><b>${esc(o.symbol)}</b></td><td class="${o.side === 'buy' ? 'up' : 'dn'}">${o.side === 'buy' ? 'Kauf' : 'Verkauf'}</td><td>${esc(typ)}</td><td class="r num">${esc(o.qty || o.notional || '')}</td><td class="r num">${lim ? fmt(+lim) : '–'}</td><td class="r num">${o.filled_avg_price ? esc(o.filled_qty) + ' @ ' + fmt(+o.filled_avg_price) : '–'}</td><td class="${stc}">${esc(STATUS[st] || st)}</td></tr>`;
+    }).join('') + '</table></div>' : '<div class="empty">Noch keine Orders.</div>';
+}
+
+let busy = false, tick = 0, stopped = false, accountOff = false;
+async function liveTick(){
+  if (busy || document.hidden) return; busy = true;
+  try {
+    const jobs = [pollChart()];
+    if (tick % 3 === 0) jobs.push(pollPrices());
+    if (tick % 3 === 1 && !accountOff) jobs.push(pollAccount().catch(e => {
+      if (['cancelled','approval_required','not_in_manifest'].includes(e && e.code)) { accountOff = true; return; }
+      throw e;
+    }));
+    await Promise.all(jobs);
+    liveOk = true; lastLive = Date.now();
+    setState('Live', 'live', 'Kurse von Alpaca (IEX) über deinen lokalen Alpaca-Server');
+    document.getElementById('stand').textContent = `aktualisiert ${hhmm(lastLive, 'America/New_York')} ET · ${hhmm(lastLive, 'Europe/Berlin').slice(0,5)} DE`;
+  } catch (e) {
+    const c = handleErr(e);
+    if (['server_not_connected','not_in_manifest','approval_required','cancelled','not_granted','capability_disabled','capability_removed'].includes(c) && !liveOk) { stopped = true; if (timer) { clearInterval(timer); timer = null; } }
+  } finally { busy = false; tick++; }
+}
+
+let timer = null;
+async function startLive(){
+  if (!window.claude || !claude.use) return;
+  try { mcp = await claude.use('mcp'); } catch (e) { mcp = null; }
+  if (!mcp) return;
+  setState('Verbinde …', 'warn');
+  await liveTick();
+  if (!stopped) timer = setInterval(liveTick, 5000);
+  document.querySelectorAll('.wl tr.row, .tf button').forEach(el => el.addEventListener('click', () => setTimeout(() => { if (timer) liveTick(); }, 50)));
+}
+"""
+
+
+JS = JS + LIVE_JS
 
 LWC = "https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"
 
@@ -414,9 +576,9 @@ def page(now, acct, symbols, watch, args):
                  ("Unrealisiert", money(upl, True), cls(upl)), ("Bargeld", money(float(a["cash"])), ""),
                  ("Kaufkraft", money(float(a["buying_power"])), ""), ("Day-Trades 5T", str(a.get("daytrade_count", 0)), "")]
     mk = ('<span class="tag live">Markt offen</span>' if clock.get("is_open") else '<span class="tag">Markt geschlossen</span>') if clock else ""
-    p.append('<div class="bar"><div class="brand">Alpaca <span class="tag paper">PAPIER</span></div>'
+    p.append('<div class="bar"><div class="brand">Alpaca <span class="tag paper">PAPIER</span></div><div id="kvs" style="display:contents">'
              + "".join(f'<div class="kv"><span>{k}</span><b class="{c}">{v}</b></div>' for k, v, c in items)
-             + f'<div class="right">{mk}<span>Stand {ts_both(now)}</span></div></div>')
+             + f'</div><div class="right"><span class="tag" id="livestate" title="Live-Kurse gibt es nur in der Claude-Desktop-App mit lokalem Alpaca-Server">Snapshot</span>{mk}<span id="stand">Stand {ts_both(now)}</span></div></div>')
     if acct.get("error"):
         p.append(f'<div class="err">Kontodaten fehlen: {E(acct["error"])}. Die Charts kommen trotzdem aus aktuellen Kursdaten.</div>')
     # main: chart + watchlist
@@ -440,7 +602,7 @@ def page(now, acct, symbols, watch, args):
                  f'<td class="r num {cls(s["chg"])}">{"+" if s["chg"] >= 0 else ""}{fmt(s["chg"])}</td></tr>')
     p.append('</tbody></table></div></div>')
     # account tables
-    p.append('<div class="acct"><div class="pane"><h2>Positionen</h2>')
+    p.append('<div class="acct"><div class="pane"><h2>Positionen</h2><div id="posbox">')
     pos = acct.get("positions") or []
     if pos:
         p.append('<div class="tbl"><table><tr><th>Symbol</th><th class="r">Stück</th><th class="r">Ø Einstand</th><th class="r">Kurs</th>'
@@ -453,7 +615,7 @@ def page(now, acct, symbols, watch, args):
         p.append('</table></div>')
     else:
         p.append('<div class="empty">Keine offenen Positionen.</div>')
-    p.append('</div><div class="pane"><h2>Orders</h2>')
+    p.append('</div></div><div class="pane"><h2>Orders</h2><div id="ordbox">')
     orders = acct.get("orders") or []
     if orders:
         p.append('<div class="tbl"><table><tr><th>Zeit</th><th>Symbol</th><th>Seite</th><th>Typ</th><th class="r">Stück</th>'
@@ -479,8 +641,8 @@ def page(now, acct, symbols, watch, args):
         p.append('</table></div>')
     else:
         p.append('<div class="empty">Noch keine Orders.</div>')
-    p.append('</div></div>')
-    p.append('<p class="foot">Momentaufnahme, kein Live-Feed. Zum Auffrischen in Claude „Dashboard aktualisieren“ schreiben. '
+    p.append('</div></div></div>')
+    p.append('<p class="foot">In der Claude-Desktop-App mit lokalem Alpaca-Server laufen Kurse, Konto und Orders live (alle 5 bis 15 Sekunden, Kurse von IEX). Überall sonst ist die Seite eine Momentaufnahme; dann in Claude „Dashboard aktualisieren“ schreiben. Signale, Scanner und Watchlist erneuere ich bei jedem Check. '
              'Signale sind die Regeln von /trader-scanner, für jeden Tag nachgerechnet: eine Regel, die zutrifft, keine Kaufempfehlung. '
              'Daten: Alpaca Paper API, Yahoo Finance (kann verzögert sein). Charts: <a href="https://www.tradingview.com/lightweight-charts/">TradingView Lightweight Charts</a>. '
              'Diese Seite liest nur und kann keine Orders auslösen. Keine Finanzberatung.</p>')
