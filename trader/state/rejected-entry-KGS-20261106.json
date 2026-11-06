@@ -1,0 +1,22 @@
+{
+  "created_by": "trader-entry",
+  "symbol": "KGS",
+  "setup": "orb",
+  "side": "buy",
+  "date": "2026-11-06",
+  "status": "triggered",
+  "time": "11:55 AM",
+  "bar_start": "11:50",
+  "bar_index": 28,
+  "price": 41.49,
+  "level": 41.36,
+  "interval": "5m",
+  "opening_range": {
+    "high": 41.36,
+    "low": 39.87,
+    "minutes": 15
+  },
+  "source": "yahoo",
+  "checked_at": "2026-11-06T17:08:48Z",
+  "reason": "the 11:50 bar closed above the range high"
+}

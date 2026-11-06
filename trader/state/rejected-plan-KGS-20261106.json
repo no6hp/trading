@@ -1,0 +1,28 @@
+{
+  "created_by": "trader-exit",
+  "symbol": "KGS",
+  "side": "buy",
+  "date": "2026-11-06",
+  "setup": "orb",
+  "entry": 41.62,
+  "entry_time": "12:00 PM",
+  "entry_bar": null,
+  "interval": "5m",
+  "opening_range": {
+    "high": 41.36,
+    "low": 39.87,
+    "minutes": 15
+  },
+  "stop": 40.61,
+  "stop_rule": "or_mid",
+  "stop_label": "opening-range midpoint",
+  "target": 43.64,
+  "target_r": 2.0,
+  "target_label": "2R (two times the risk)",
+  "risk_per_share": 1.01,
+  "reward_risk": 2.0,
+  "flat_by": "15:55",
+  "stop_detail": "($41.36 + $39.87) / 2 = $40.615, rounded down",
+  "created_at": "2026-11-06T17:08:48Z",
+  "note": "A stop is a plan, not a guarantee: a gap or a fast market can fill past it."
+}
