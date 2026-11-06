@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "KR",
+  "symbol": "CMCSA",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "status": "triggered",
   "time": "9:55 AM",
   "bar_start": "09:50",
   "bar_index": 4,
-  "price": 70.57,
-  "level": 70.4,
+  "price": 24.47,
+  "level": 24.39,
   "interval": "5m",
   "opening_range": {
-    "high": 70.4,
-    "low": 69.37,
+    "high": 24.39,
+    "low": 24.08,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-05T15:11:29Z",
+  "checked_at": "2026-11-06T15:10:18Z",
   "reason": "the 9:50 bar closed above the range high"
 }
