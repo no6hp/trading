@@ -1,0 +1,22 @@
+{
+  "created_by": "trader-entry",
+  "symbol": "IBM",
+  "setup": "orb",
+  "side": "buy",
+  "date": "2026-11-06",
+  "status": "triggered",
+  "time": "9:50 AM",
+  "bar_start": "09:45",
+  "bar_index": 3,
+  "price": 243.1,
+  "level": 242.63,
+  "interval": "5m",
+  "opening_range": {
+    "high": 242.63,
+    "low": 240.35,
+    "minutes": 15
+  },
+  "source": "yahoo",
+  "checked_at": "2026-11-06T14:53:13Z",
+  "reason": "the 9:45 bar closed above the range high"
+}

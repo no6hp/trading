@@ -1,0 +1,28 @@
+{
+  "created_by": "trader-exit",
+  "symbol": "IBM",
+  "side": "buy",
+  "date": "2026-11-06",
+  "setup": "orb",
+  "entry": 243.1,
+  "entry_time": "9:50 AM",
+  "entry_bar": 3,
+  "interval": "5m",
+  "opening_range": {
+    "high": 242.63,
+    "low": 240.35,
+    "minutes": 15
+  },
+  "stop": 241.49,
+  "stop_rule": "or_mid",
+  "stop_label": "opening-range midpoint",
+  "target": 246.32,
+  "target_r": 2.0,
+  "target_label": "2R (two times the risk)",
+  "risk_per_share": 1.61,
+  "reward_risk": 2.0,
+  "flat_by": "15:55",
+  "stop_detail": "($242.63 + $240.35) / 2 = $241.49",
+  "created_at": "2026-11-06T14:53:13Z",
+  "note": "A stop is a plan, not a guarantee: a gap or a fast market can fill past it."
+}
