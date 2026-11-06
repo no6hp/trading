@@ -1,0 +1,22 @@
+{
+  "created_by": "trader-entry",
+  "symbol": "SMTC",
+  "setup": "orb",
+  "side": "buy",
+  "date": "2026-11-06",
+  "status": "triggered",
+  "time": "2:55 PM",
+  "bar_start": "14:50",
+  "bar_index": 64,
+  "price": 101.89,
+  "level": 101.86,
+  "interval": "5m",
+  "opening_range": {
+    "high": 101.86,
+    "low": 95.0,
+    "minutes": 15
+  },
+  "source": "yahoo",
+  "checked_at": "2026-11-06T20:07:07Z",
+  "reason": "the 14:50 bar closed above the range high"
+}
