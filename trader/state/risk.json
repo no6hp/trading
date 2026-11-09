@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "now_new_york": "2026-11-09 11:55",
+  "now_new_york": "2026-11-09 11:56",
   "paper": true,
   "results": [
     {
@@ -9,21 +9,22 @@
       "side": "buy",
       "kind": "entry",
       "amount": "1 shares",
-      "value_usd": 499.24,
-      "entry_ref": 499.24,
-      "entry_ref_from": "plan",
+      "value_usd": 499.57,
+      "entry_ref": 499.57,
+      "entry_ref_from": "price",
       "stop": 474.4,
       "target": 548.92,
-      "risk_per_share": 24.84,
-      "max_loss": 24.84,
-      "reward_risk": 2.0,
+      "risk_per_share": 25.17,
+      "max_loss": 25.17,
+      "reward_risk": 1.96,
       "fingerprint": "24c274fdf3c03167",
       "verdict": "PASS",
       "reasons": [],
       "warnings": [],
       "info": [
-        "entry 499.24 (the plan's entry), stop 474.40, target 548.92: risk 24.84 a share",
-        "max loss $24.84 (limit $100), reward:risk 2.00 (min 1)",
+        "AMD last 499.57 is above the plan's entry 499.24: the risk is measured from 499.57",
+        "entry 499.57 (the latest price), stop 474.40, target 548.92: risk 25.17 a share",
+        "max loss $25.17 (limit $100), reward:risk 1.96 (min 1)",
         "today before this: 0 of 3 trades, $0 of $100 daily loss"
       ]
     }
@@ -31,14 +32,14 @@
   "pass": 1,
   "block": 0,
   "warnings": [],
-  "cash_after": 500.76,
+  "cash_after": 500.43,
   "today": {
     "orders_placed": 0,
     "entries_placed": 0,
     "loss_at_risk": 0.0,
     "day_trades_5d": null
   },
-  "prices_as_of": "2026-11-09T16:55:27Z",
-  "checked_at": "2026-11-09T16:55:35Z",
+  "prices_as_of": "2026-11-09T16:56:20Z",
+  "checked_at": "2026-11-09T16:56:20Z",
   "orders_file": "trader/orders.json"
 }

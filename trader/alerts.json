@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "id": "amd-plan-stop",
+      "symbol": "AMD",
+      "type": "stop",
+      "price": 474.4,
+      "note": "plan stop: opening-range midpoint",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "amd-plan-target",
+      "symbol": "AMD",
+      "type": "target",
+      "price": 548.92,
+      "note": "plan target: 2R (two times the risk)",
+      "date": "2026-11-09"
+    },
+    {
+      "id": "amd-flat-by",
+      "symbol": "AMD",
+      "type": "time",
+      "at": "15:55",
+      "label": "flat by close",
+      "before_close": true,
+      "date": "2026-11-09"
+    }
+  ]
+}

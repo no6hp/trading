@@ -1,0 +1,45 @@
+{
+  "orders": [
+    {
+      "at": "2026-11-09T11:56:33-05:00",
+      "date": "2026-11-09",
+      "index": 1,
+      "fingerprint": "24c274fdf3c03167",
+      "symbol": "AMD",
+      "side": "buy",
+      "qty": "1",
+      "kind": "entry",
+      "max_loss": 24.84,
+      "stop": 474.4,
+      "plain": "BUY 1 AMD, market, good for today / stop-loss 474.40 / take-profit 548.92 / max loss about $24.84 if the stop fills at 474.40 (it can fill worse in a fast market)",
+      "status": "approved",
+      "reply": "yes (Nutzer schrieb w\u00f6rtlich: ja)",
+      "paper": true,
+      "broker": "alpaca"
+    },
+    {
+      "at": "2026-11-09T11:56:52-05:00",
+      "date": "2026-11-09",
+      "index": 1,
+      "fingerprint": "24c274fdf3c03167",
+      "symbol": "AMD",
+      "side": "buy",
+      "plain": "BUY 1 AMD, market, good for today / stop-loss 474.40 / take-profit 548.92 / max loss about $24.84 if the stop fills at 474.40 (it can fill worse in a fast market)",
+      "status": "placed",
+      "qty": "1",
+      "kind": "entry",
+      "max_loss": 24.84,
+      "stop": 474.4
+    },
+    {
+      "at": "2026-11-09T11:57:02-05:00",
+      "date": "2026-11-09",
+      "status": "filled",
+      "symbol": "AMD",
+      "side": "buy",
+      "qty": "1",
+      "price": 499.45,
+      "plain": "BUY 1 AMD at 499.45"
+    }
+  ]
+}
