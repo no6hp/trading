@@ -1,29 +1,29 @@
 {
   "created_by": "trader-budget",
-  "created_at": "2026-11-09T14:53:22Z",
+  "created_at": "2026-11-09T16:55:35Z",
   "status": "proposed",
   "paper": true,
   "note": "Proposals only. Nothing is placed until trader-risk passes each order and you say yes to it in the chat.",
-  "source": "trader/plan.json (NVDA orb 2026-11-09)",
+  "source": "trader/plan.json (AMD orb 2026-11-09)",
   "orders": [
     {
-      "symbol": "NVDA",
+      "symbol": "AMD",
       "side": "buy",
-      "qty": "2",
+      "qty": "1",
       "type": "market",
       "time_in_force": "day",
       "order_class": "bracket",
-      "take_profit_limit_price": "184.62",
-      "stop_loss_stop_price": "173.85",
-      "why": "opening-range breakout on NVDA: 2 shares, bound by your $10 max loss per trade (2 x 3.59 = $7.18 at the stop)",
+      "take_profit_limit_price": "548.92",
+      "stop_loss_stop_price": "474.40",
+      "why": "opening-range breakout on AMD: 1 shares, bound by your position cap (1 x 24.84 = $24.84 at the stop)",
       "plan": {
-        "entry": 177.44,
-        "stop": 173.85,
-        "target": 184.62,
-        "risk_per_share": 3.59,
-        "max_loss": 7.18,
+        "entry": 499.24,
+        "stop": 474.4,
+        "target": 548.92,
+        "risk_per_share": 24.84,
+        "max_loss": 24.84,
         "setup": "orb",
-        "entry_time": "9:50 AM",
+        "entry_time": "11:55 AM",
         "flat_by": "15:55"
       }
     }
