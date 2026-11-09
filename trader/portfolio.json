@@ -1,17 +1,4 @@
 {
-  "cash": 500.55,
-  "positions": [
-    {
-      "ticker": "AMD",
-      "shares": 1.0,
-      "lots": [
-        {
-          "id": "AMD-1",
-          "date": "2026-11-09",
-          "shares": 1.0,
-          "cost": 499.45
-        }
-      ]
-    }
-  ]
+  "cash": 1009.4,
+  "positions": []
 }

@@ -40,6 +40,16 @@
       "qty": "1",
       "price": 499.45,
       "plain": "BUY 1 AMD at 499.45"
+    },
+    {
+      "at": "2026-11-09T15:51:17-05:00",
+      "date": "2026-11-09",
+      "status": "filled",
+      "symbol": "AMD",
+      "side": "sell",
+      "qty": "1",
+      "price": 508.85,
+      "plain": "SELL 1 AMD at 508.85"
     }
   ]
 }
