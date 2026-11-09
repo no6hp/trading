@@ -5,7 +5,7 @@ github.com/Jakeschincariol/day-trader-skill). **Antworte auf Deutsch, mit "du".*
 Keine Finanzberatung – die Skills rechnen nur mit öffentlichen Daten.
 
 ## Einstellungen
-- `trader/config.json` – Budget 1.000 $, max. 10 $ Verlust/Trade, 30 $/Tag, 3 Trades/Tag,
+- `trader/config.json` – Budget 1.000 $, max. 100 $ Verlust/Trade, 30 $/Tag, 3 Trades/Tag,
   Einstieg 09:45–15:30 ET, flat bis 15:55 ET, `"paper": true`. Nur auf Wunsch ändern.
 - Alle Skills lesen/schreiben im Ordner `trader/` im Repo-Root (Skripte immer aus
   `/home/user/trading` bzw. dem Repo-Root starten).
