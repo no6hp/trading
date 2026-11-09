@@ -1,29 +1,29 @@
 {
   "created_by": "trader-budget",
-  "created_at": "2026-11-06T14:55:37Z",
+  "created_at": "2026-11-09T14:53:22Z",
   "status": "proposed",
   "paper": true,
   "note": "Proposals only. Nothing is placed until trader-risk passes each order and you say yes to it in the chat.",
-  "source": "trader/plan.json (NDAQ orb 2026-11-06)",
+  "source": "trader/plan.json (NVDA orb 2026-11-09)",
   "orders": [
     {
-      "symbol": "NDAQ",
+      "symbol": "NVDA",
       "side": "buy",
-      "qty": "7",
+      "qty": "2",
       "type": "market",
       "time_in_force": "day",
       "order_class": "bracket",
-      "take_profit_limit_price": "109.15",
-      "stop_loss_stop_price": "105.91",
-      "why": "opening-range breakout on NDAQ: 7 shares, bound by your position cap (7 x 1.08 = $7.56 at the stop)",
+      "take_profit_limit_price": "184.62",
+      "stop_loss_stop_price": "173.85",
+      "why": "opening-range breakout on NVDA: 2 shares, bound by your $10 max loss per trade (2 x 3.59 = $7.18 at the stop)",
       "plan": {
-        "entry": 106.99,
-        "stop": 105.91,
-        "target": 109.15,
-        "risk_per_share": 1.08,
-        "max_loss": 7.56,
+        "entry": 177.44,
+        "stop": 173.85,
+        "target": 184.62,
+        "risk_per_share": 3.59,
+        "max_loss": 7.18,
         "setup": "orb",
-        "entry_time": "9:55 AM",
+        "entry_time": "9:50 AM",
         "flat_by": "15:55"
       }
     }

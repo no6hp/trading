@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "NDAQ",
+  "symbol": "NVDA",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-06",
+  "date": "2026-11-09",
   "status": "triggered",
-  "time": "9:55 AM",
-  "bar_start": "09:50",
-  "bar_index": 4,
-  "price": 106.99,
-  "level": 106.83,
+  "time": "9:50 AM",
+  "bar_start": "09:45",
+  "bar_index": 3,
+  "price": 177.44,
+  "level": 176.45,
   "interval": "5m",
   "opening_range": {
-    "high": 106.83,
-    "low": 105.0,
+    "high": 176.45,
+    "low": 171.25,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-06T14:55:18Z",
-  "reason": "the 9:50 bar closed above the range high"
+  "checked_at": "2026-11-09T14:53:20Z",
+  "reason": "the 9:45 bar closed above the range high"
 }
