@@ -13,6 +13,20 @@
       "pnl": -9.84,
       "r": -1.03,
       "alpaca_order_id": "4e67baef-7c8d-4e29-98ce-c9d88503fce6"
+    },
+    {
+      "date": "2026-11-09",
+      "symbol": "AMD",
+      "setup": "manuell (nicht von Claude platziert)",
+      "qty": 1,
+      "entry": 499.45,
+      "entry_time_et": "11:56",
+      "stop": 474.4,
+      "target": 548.92,
+      "risk_usd": 25.05,
+      "exit": null,
+      "status": "open",
+      "alpaca_order_id": "50f0b320-7469-452a-bf1b-d4a289ae0e47"
     }
   ]
 }
