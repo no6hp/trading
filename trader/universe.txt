@@ -219,7 +219,6 @@ ALAR|Alarum Technologies Ltd. - American Depositary Shares
 ALB|Albemarle Corporation Common Stock
 ALC|Alcon Inc. Ordinary Shares
 ALCO|Alico, Inc. - Common Stock
-ALDF|Aldel Financial II Inc. - Class A Ordinary Shares
 ALDX|Aldeyra Therapeutics, Inc. - Common Stock
 ALEC|Alector, Inc. - Common Stock
 ALF|Centurion Acquisition Corp. - Class A Ordinary Shares
@@ -397,7 +396,6 @@ AREC|American Resources Corporation - Class A Common Stock
 ARES|Ares Management Corporation Class A Common Stock
 ARGX|argenx SE - American Depositary Shares
 ARHS|Arhaus, Inc. - Class A Common Stock
-ARI|Apollo Commercial Real Estate Finance, Inc
 ARIS|Aris Mining Corporation Common Shares
 ARKO|ARKO Corp. - Common Stock
 ARKR|Ark Restaurants Corp. - Common Stock
@@ -915,7 +913,6 @@ BWG|BrandywineGLOBAL Global Income Opportunities Fund Inc.
 BWIN|The Baldwin Insurance Group, Inc. - Class A Common Stock
 BWIV|Blue Water Acquisition Corp. IV Class A Ordinary Shares
 BWLP|BW LPG Limited Common Shares
-BWMN|Bowman Consulting Group Ltd. - Common Stock
 BWMX|Betterware de Mexico, S.A.P.I. de C.V. Ordinary Shares
 BWXT|BWX Technologies, Inc. Common Stock
 BX|Blackstone Inc. Common Stock
@@ -2502,6 +2499,7 @@ HLN|Haleon plc American Depositary Shares (Each representing two Ordinary Shares
 HLNE|Hamilton Lane Incorporated - Class A Common Stock
 HLP|Hongli Group Inc. - Class A Ordinary Shares
 HLSQ|Tessera Defense and Homeland Security Inc. Common Stock
+HLT|Hilton Worldwide Holdings Inc. - Common Stock
 HLXC|Helix Acquisition Corp. III - Class A Ordinary Shares
 HMC|Honda Motor Company, Ltd. Common Stock
 HMH|HMH Holding Inc. - Common Stock
@@ -2600,6 +2598,7 @@ HWM|Howmet Aerospace Inc. Common Stock
 HXHX|Haoxin Holdings Limited - Class A Ordinary Shares
 HXL|Hexcel Corporation Common Stock
 HY|Hyster-Yale, Inc. Class A common stock
+HYAC|Haymaker Acquisition Corp V Class A Ordinary Shares
 HYFM|Hydrofarm Holdings Group, Inc. - Common Stock
 HYFT|MindWalk Holdings Corp. - Common Stock
 HYI|Western Asset High Yield Opportunity Fund Inc. Common Stock
@@ -2733,7 +2732,6 @@ INIO|INNIO N.V. - Ordinary Shares
 INKT|MiNK Therapeutics, Inc. - Common Stock
 INLF|INLIF LIMITED - Class A Ordinary shares
 INLX|Intellinetics, Inc. Common Stock
-INM|InMed Pharmaceuticals Inc. - Common Shares
 INMB|INmune Bio Inc. - Common stock
 INMD|InMode Ltd. - Ordinary Shares
 INN|Summit Hotel Properties, Inc. Common Stock
@@ -3086,6 +3084,7 @@ LDOS|Leidos Holdings, Inc. Common Stock
 LE|Lands' End, Inc. - Common Stock
 LEA|Lear Corporation Common Stock
 LECO|Lincoln Electric Holdings, Inc. - Common Shares
+LEDR|Leader's Advantage Acquisition Corp. - Class A Ordinary Shares
 LEDS|SemiLEDS Corporation - Common Stock
 LEE|Lee Enterprises, Incorporated - Common Stock
 LEGH|Legacy Housing Corporation - Common Stock
@@ -3317,7 +3316,6 @@ MCRB|Seres Therapeutics, Inc. - Common Stock
 MCRI|Monarch Casino & Resort, Inc. - Common Stock
 MCRP|Micropolis AI Robotics Ordinary Shares
 MCS|Marcus Corporation (The) Common Stock
-MCTA|Charming Medical Limited - Class A Ordinary Shares
 MCY|Mercury General Corporation Common Stock
 MD|Pediatrix Medical Group, Inc. Common Stock
 MDA|MDA Space Ltd. Common Shares
@@ -3540,6 +3538,7 @@ MTN|Vail Resorts, Inc. Common Stock
 MTNB|Matinas Biopharma Holdings, Inc. Common Stock
 MTNE|CH4 Natural Solutions Corporation Class A Ordinary Shares
 MTR|Mesa Royalty Trust Common Stock
+MTRI|Mentari Therapeutics, Inc. - Common Stock
 MTRN|Materion Corporation
 MTRX|Matrix Service Company - Common Stock
 MTSI|MACOM Technology Solutions Holdings, Inc. - Common Stock
@@ -4591,7 +4590,6 @@ ROCK|Gibraltar Industries, Inc. - Common Stock
 ROG|Rogers Corporation Common Stock
 ROIV|Roivant Sciences Ltd. - Common Shares
 ROK|Rockwell Automation, Inc. Common Stock
-ROKU|Roku, Inc. - Class A Common Stock
 ROL|Rollins, Inc. Common Stock
 ROLR|High Roller Technologies, Inc. Common Stock
 ROMA|Roma Green Finance Limited - Class A Ordinary Shares
@@ -5140,7 +5138,6 @@ TBLA|Taboola.com Ltd. - Ordinary Shares
 TBLD|Thornburg Income Builder Opportunities Trust - Closed End Fund
 TBN|Tamboran Resources Corporation Common stock
 TC|Token Cat Limited - American Depositary Shares
-TCBI|Texas Capital Bancshares, Inc. Common Stock
 TCBK|TriCo Bancshares - Common Stock
 TCBS|Texas Community Bancshares, Inc. - Common Stock
 TCBX|Third Coast Bancshares, Inc. Common Stock
@@ -5386,6 +5383,7 @@ TWLV|Twelve Seas Investment Company III - Class A Ordinary Shares
 TWN|Taiwan Fund, Inc. (The) Common Stock
 TWST|Twist Bioscience Corporation - Common Stock
 TX|Ternium S.A. Ternium S.A. American Depositary Shares (each representing ten shares, USD1.00 par value)
+TXCP|Texas Capital Bancshares, Inc. Common Stock
 TXG|10x Genomics, Inc. - Common Stock
 TXMD|TherapeuticsMD, Inc. - Common Stock
 TXN|Texas Instruments Incorporated - Common Stock
