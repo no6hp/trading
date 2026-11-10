@@ -31,6 +31,19 @@
       "exit_reason": "manueller Market-Verkauf (nicht von Claude)",
       "pnl": 9.4,
       "r": 0.38
+    },
+    {
+      "date": "2026-11-10",
+      "symbol": "INTC",
+      "setup": "manuell (nicht von Claude platziert, per API-Key)",
+      "qty": 12,
+      "entry": 59.9,
+      "entry_time_et": "09:56",
+      "stop": 58.22,
+      "target": 61.94,
+      "risk_usd": 20.16,
+      "exit": null,
+      "status": "open"
     }
   ]
 }
