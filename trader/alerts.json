@@ -24,6 +24,31 @@
       "label": "flat by close",
       "before_close": true,
       "date": "2026-11-09"
+    },
+    {
+      "id": "intc-plan-stop",
+      "symbol": "INTC",
+      "type": "stop",
+      "price": 58.22,
+      "note": "plan stop: opening-range midpoint",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "intc-plan-target",
+      "symbol": "INTC",
+      "type": "target",
+      "price": 61.94,
+      "note": "plan target: 2R (two times the risk)",
+      "date": "2026-11-10"
+    },
+    {
+      "id": "intc-flat-by",
+      "symbol": "INTC",
+      "type": "time",
+      "at": "15:55",
+      "label": "flat by close",
+      "before_close": true,
+      "date": "2026-11-10"
     }
   ]
 }

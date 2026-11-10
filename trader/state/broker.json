@@ -50,6 +50,47 @@
       "qty": "1",
       "price": 508.85,
       "plain": "SELL 1 AMD at 508.85"
+    },
+    {
+      "at": "2026-11-10T09:56:44-05:00",
+      "date": "2026-11-10",
+      "index": 1,
+      "fingerprint": "aa8763ea9b95a973",
+      "symbol": "INTC",
+      "side": "buy",
+      "qty": "12",
+      "kind": "entry",
+      "max_loss": 14.88,
+      "stop": 58.22,
+      "plain": "BUY 12 INTC, market, good for today / stop-loss 58.22 / take-profit 61.94 / max loss about $14.88 if the stop fills at 58.22 (it can fill worse in a fast market)",
+      "status": "approved",
+      "reply": "yes (Nutzer schrieb w\u00f6rtlich: ja)",
+      "paper": true,
+      "broker": "alpaca"
+    },
+    {
+      "at": "2026-11-10T09:57:04-05:00",
+      "date": "2026-11-10",
+      "index": 1,
+      "fingerprint": "aa8763ea9b95a973",
+      "symbol": "INTC",
+      "side": "buy",
+      "plain": "BUY 12 INTC, market, good for today / stop-loss 58.22 / take-profit 61.94 / max loss about $14.88 if the stop fills at 58.22 (it can fill worse in a fast market)",
+      "status": "placed",
+      "qty": "12",
+      "kind": "entry",
+      "max_loss": 14.88,
+      "stop": 58.22
+    },
+    {
+      "at": "2026-11-10T09:57:04-05:00",
+      "date": "2026-11-10",
+      "status": "filled",
+      "symbol": "INTC",
+      "side": "buy",
+      "qty": "12",
+      "price": 59.9,
+      "plain": "BUY 12 INTC at 59.90"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "now_new_york": "2026-11-10 09:55",
+  "now_new_york": "2026-11-10 09:56",
   "paper": true,
   "results": [
     {
@@ -9,22 +9,22 @@
       "side": "buy",
       "kind": "entry",
       "amount": "12 shares",
-      "value_usd": 716.16,
-      "entry_ref": 59.68,
+      "value_usd": 719.64,
+      "entry_ref": 59.97,
       "entry_ref_from": "price",
       "stop": 58.22,
       "target": 61.94,
-      "risk_per_share": 1.46,
-      "max_loss": 17.52,
-      "reward_risk": 1.55,
+      "risk_per_share": 1.75,
+      "max_loss": 21.0,
+      "reward_risk": 1.13,
       "fingerprint": "aa8763ea9b95a973",
       "verdict": "PASS",
       "reasons": [],
       "warnings": [],
       "info": [
-        "INTC last 59.68 is above the plan's entry 59.46: the risk is measured from 59.68",
-        "entry 59.68 (the latest price), stop 58.22, target 61.94: risk 1.46 a share",
-        "max loss $17.52 (limit $100), reward:risk 1.55 (min 1)",
+        "INTC last 59.97 is above the plan's entry 59.46: the risk is measured from 59.97",
+        "entry 59.97 (the latest price), stop 58.22, target 61.94: risk 1.75 a share",
+        "max loss $21 (limit $100), reward:risk 1.13 (min 1)",
         "today before this: 0 of 3 trades, $0 of $100 daily loss"
       ]
     }
@@ -32,14 +32,14 @@
   "pass": 1,
   "block": 0,
   "warnings": [],
-  "cash_after": 293.24,
+  "cash_after": 289.76,
   "today": {
     "orders_placed": 0,
     "entries_placed": 0,
     "loss_at_risk": 0.0,
     "day_trades_5d": null
   },
-  "prices_as_of": "2026-11-10T14:55:29Z",
-  "checked_at": "2026-11-10T14:55:29Z",
+  "prices_as_of": "2026-11-10T14:56:39Z",
+  "checked_at": "2026-11-10T14:56:39Z",
   "orders_file": "trader/orders.json"
 }

@@ -1,4 +1,17 @@
 {
-  "cash": 1009.4,
-  "positions": []
+  "cash": 290.6,
+  "positions": [
+    {
+      "ticker": "INTC",
+      "shares": 12.0,
+      "lots": [
+        {
+          "id": "INTC-1",
+          "date": "2026-11-10",
+          "shares": 12.0,
+          "cost": 718.8
+        }
+      ]
+    }
+  ]
 }
