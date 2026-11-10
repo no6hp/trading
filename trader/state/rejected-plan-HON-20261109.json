@@ -1,0 +1,28 @@
+{
+  "created_by": "trader-exit",
+  "symbol": "HON",
+  "side": "buy",
+  "date": "2026-11-09",
+  "setup": "orb",
+  "entry": 225.44,
+  "entry_time": "10:00 AM",
+  "entry_bar": null,
+  "interval": "5m",
+  "opening_range": {
+    "high": 225.34,
+    "low": 222.6,
+    "minutes": 15
+  },
+  "stop": 221.78,
+  "stop_rule": "pct",
+  "stop_label": "1.62% under the entry",
+  "target": 232.76,
+  "target_r": 2.0,
+  "target_label": "2R (two times the risk)",
+  "risk_per_share": 3.66,
+  "reward_risk": 2.0,
+  "flat_by": "15:55",
+  "stop_detail": "$225.44 x (1 - 1.62%) = $221.787872, rounded down",
+  "created_at": "2026-11-09T15:09:05Z",
+  "note": "A stop is a plan, not a guarantee: a gap or a fast market can fill past it."
+}

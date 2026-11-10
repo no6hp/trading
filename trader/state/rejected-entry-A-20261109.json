@@ -1,0 +1,22 @@
+{
+  "created_by": "trader-entry",
+  "symbol": "A",
+  "setup": "orb",
+  "side": "buy",
+  "date": "2026-11-09",
+  "status": "triggered",
+  "time": "11:05 AM",
+  "bar_start": "11:00",
+  "bar_index": 18,
+  "price": 177.88,
+  "level": 177.79,
+  "interval": "5m",
+  "opening_range": {
+    "high": 177.79,
+    "low": 174.76,
+    "minutes": 15
+  },
+  "source": "yahoo",
+  "checked_at": "2026-11-09T16:08:13Z",
+  "reason": "the 11:00 bar closed above the range high"
+}

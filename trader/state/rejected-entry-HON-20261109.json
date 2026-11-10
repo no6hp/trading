@@ -1,0 +1,22 @@
+{
+  "created_by": "trader-entry",
+  "symbol": "HON",
+  "setup": "orb",
+  "side": "buy",
+  "date": "2026-11-09",
+  "status": "triggered",
+  "time": "10:05 AM",
+  "bar_start": "10:00",
+  "bar_index": 6,
+  "price": 225.44,
+  "level": 225.34,
+  "interval": "5m",
+  "opening_range": {
+    "high": 225.34,
+    "low": 222.6,
+    "minutes": 15
+  },
+  "source": "yahoo",
+  "checked_at": "2026-11-09T15:08:49Z",
+  "reason": "the 10:00 bar closed above the range high"
+}
