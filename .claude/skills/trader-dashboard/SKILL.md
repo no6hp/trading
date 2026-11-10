@@ -29,7 +29,7 @@ Treffer aus `trader/watchlist.json`.
 
 ## Aussehen
 
-Dunkles Layout im TradingView-Stil: Kontoleiste oben, großer interaktiver
+Dunkles Layout im iOS-Stil: Kontoleiste oben, großer interaktiver
 Chart (TradingView Lightweight Charts 4.2.3 von jsDelivr, Umschalter 1T / 5m)
 mit Watchlist rechts zum Durchklicken, darunter Positionen und Orders
 (Bracket-Beine eingerückt). 1T: Kerzen, Volumen, MA20, 20-Tage-Hoch,
