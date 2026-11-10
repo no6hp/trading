@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "KO",
+  "symbol": "PSA",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-10",
   "status": "triggered",
-  "time": "12:00 PM",
-  "bar_start": "11:55",
-  "bar_index": 29,
-  "price": 96.74,
-  "level": 96.73,
+  "time": "1:00 PM",
+  "bar_start": "12:55",
+  "bar_index": 41,
+  "price": 336.46,
+  "level": 336.39,
   "interval": "5m",
   "opening_range": {
-    "high": 96.73,
-    "low": 96.04,
+    "high": 336.39,
+    "low": 333.38,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-10T17:07:45Z",
-  "reason": "the 11:55 bar closed above the range high"
+  "checked_at": "2026-11-10T18:07:38Z",
+  "reason": "the 12:55 bar closed above the range high"
 }
