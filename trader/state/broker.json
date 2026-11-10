@@ -91,6 +91,16 @@
       "qty": "12",
       "price": 59.9,
       "plain": "BUY 12 INTC at 59.90"
+    },
+    {
+      "at": "2026-11-10T11:06:22-05:00",
+      "date": "2026-11-10",
+      "status": "filled",
+      "symbol": "INTC",
+      "side": "sell",
+      "qty": "12",
+      "price": 58.2,
+      "plain": "SELL 12 INTC at 58.20"
     }
   ]
 }

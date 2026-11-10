@@ -1,12 +1,13 @@
 {
-  "as_of": "2026-11-10T14:56:39Z",
+  "as_of": "2026-11-10T16:09:29Z",
   "source": "yahoo",
   "note": "Delayed quotes for alerts and sizing checks. Your broker's price is the one that fills. detail.fetched is when each price was read.",
   "prices": {
     "IBM": 244.114,
     "NDAQ": 106.91,
     "AMD": 499.395,
-    "INTC": 59.965
+    "INTC": 59.965,
+    "TKO": 198.035
   },
   "detail": {
     "IBM": {
@@ -32,6 +33,12 @@
       "time": "2026-11-10T14:56:39Z",
       "source": "yahoo",
       "fetched": "2026-11-10T14:56:39Z"
+    },
+    "TKO": {
+      "prev_close": 199.65,
+      "time": "2026-11-10T16:09:23Z",
+      "source": "yahoo",
+      "fetched": "2026-11-10T16:09:29Z"
     }
   }
 }

@@ -1,49 +1,54 @@
 {
-  "trades": [
-    {
-      "date": "2026-11-05",
-      "symbol": "KR",
-      "setup": "orb",
-      "qty": 8,
-      "entry": 71.07,
-      "entry_time_et": "10:35",
-      "exit": 69.84,
-      "exit_time_et": "11:31",
-      "exit_reason": "stop",
-      "pnl": -9.84,
-      "r": -1.03,
-      "alpaca_order_id": "4e67baef-7c8d-4e29-98ce-c9d88503fce6"
-    },
-    {
-      "date": "2026-11-09",
-      "symbol": "AMD",
-      "setup": "Noahs eigene Claude-Sitzung",
-      "qty": 1,
-      "entry": 499.45,
-      "entry_time_et": "11:56",
-      "stop": 474.4,
-      "target": 548.92,
-      "risk_usd": 25.05,
-      "exit": 508.85,
-      "status": "closed",
-      "alpaca_order_id": "50f0b320-7469-452a-bf1b-d4a289ae0e47",
-      "exit_time_et": "15:51",
-      "exit_reason": "Market-Verkauf aus Noahs eigener Claude-Sitzung",
-      "pnl": 9.4,
-      "r": 0.38
-    },
-    {
-      "date": "2026-11-10",
-      "symbol": "INTC",
-      "setup": "Noahs eigene Claude-Sitzung (Branch vibrant-goodall)",
-      "qty": 12,
-      "entry": 59.9,
-      "entry_time_et": "09:56",
-      "stop": 58.22,
-      "target": 61.94,
-      "risk_usd": 20.16,
-      "exit": null,
-      "status": "open"
-    }
-  ]
+ "trades": [
+  {
+   "date": "2026-11-05",
+   "symbol": "KR",
+   "setup": "orb",
+   "qty": 8,
+   "entry": 71.07,
+   "entry_time_et": "10:35",
+   "exit": 69.84,
+   "exit_time_et": "11:31",
+   "exit_reason": "stop",
+   "pnl": -9.84,
+   "r": -1.03,
+   "alpaca_order_id": "4e67baef-7c8d-4e29-98ce-c9d88503fce6"
+  },
+  {
+   "date": "2026-11-09",
+   "symbol": "AMD",
+   "setup": "Noahs eigene Claude-Sitzung",
+   "qty": 1,
+   "entry": 499.45,
+   "entry_time_et": "11:56",
+   "stop": 474.4,
+   "target": 548.92,
+   "risk_usd": 25.05,
+   "exit": 508.85,
+   "status": "closed",
+   "alpaca_order_id": "50f0b320-7469-452a-bf1b-d4a289ae0e47",
+   "exit_time_et": "15:51",
+   "exit_reason": "Market-Verkauf aus Noahs eigener Claude-Sitzung",
+   "pnl": 9.4,
+   "r": 0.38
+  },
+  {
+   "date": "2026-11-10",
+   "symbol": "INTC",
+   "setup": "Noahs eigene Claude-Sitzung (Branch vibrant-goodall)",
+   "qty": 12,
+   "entry": 59.9,
+   "entry_time_et": "09:56",
+   "stop": 58.22,
+   "target": 61.94,
+   "risk_usd": 20.16,
+   "exit": 58.2025,
+   "status": "closed",
+   "exit_time_et": "10:45",
+   "exit_reason": "stop",
+   "pnl": -20.41,
+   "r": -1.01,
+   "alpaca_order_id": "bc4a0acc-5113-4425-abaf-c66aeb571d30"
+  }
+ ]
 }

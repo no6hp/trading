@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "INTC",
+  "symbol": "TKO",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-10",
   "status": "triggered",
-  "time": "9:55 AM",
-  "bar_start": "09:50",
-  "bar_index": 4,
-  "price": 59.46,
-  "level": 58.86,
+  "time": "11:00 AM",
+  "bar_start": "10:55",
+  "bar_index": 17,
+  "price": 197.28,
+  "level": 197.21,
   "interval": "5m",
   "opening_range": {
-    "high": 58.86,
-    "low": 57.58,
+    "high": 197.21,
+    "low": 193.59,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-10T14:55:17Z",
-  "reason": "the 9:50 bar closed above the range high"
+  "checked_at": "2026-11-10T16:09:39Z",
+  "reason": "the 10:55 bar closed above the range high"
 }
