@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "TKO",
+  "symbol": "KO",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-10",
   "status": "triggered",
-  "time": "11:00 AM",
-  "bar_start": "10:55",
-  "bar_index": 17,
-  "price": 197.28,
-  "level": 197.21,
+  "time": "12:00 PM",
+  "bar_start": "11:55",
+  "bar_index": 29,
+  "price": 96.74,
+  "level": 96.73,
   "interval": "5m",
   "opening_range": {
-    "high": 197.21,
-    "low": 193.59,
+    "high": 96.73,
+    "low": 96.04,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-10T16:09:39Z",
-  "reason": "the 10:55 bar closed above the range high"
+  "checked_at": "2026-11-10T17:07:45Z",
+  "reason": "the 11:55 bar closed above the range high"
 }
