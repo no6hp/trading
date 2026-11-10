@@ -24,9 +24,13 @@
       "stop": 474.4,
       "target": 548.92,
       "risk_usd": 25.05,
-      "exit": null,
-      "status": "open",
-      "alpaca_order_id": "50f0b320-7469-452a-bf1b-d4a289ae0e47"
+      "exit": 508.85,
+      "status": "closed",
+      "alpaca_order_id": "50f0b320-7469-452a-bf1b-d4a289ae0e47",
+      "exit_time_et": "15:51",
+      "exit_reason": "manueller Market-Verkauf (nicht von Claude)",
+      "pnl": 9.4,
+      "r": 0.38
     }
   ]
 }
