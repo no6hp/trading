@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "BOBS",
+  "symbol": "TGTX",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-11",
   "status": "triggered",
-  "time": "12:00 PM",
-  "bar_start": "11:55",
-  "bar_index": 29,
-  "price": 21.45,
-  "level": 21.38,
+  "time": "12:55 PM",
+  "bar_start": "12:50",
+  "bar_index": 40,
+  "price": 64.62,
+  "level": 64.47,
   "interval": "5m",
   "opening_range": {
-    "high": 21.38,
-    "low": 20.95,
+    "high": 64.47,
+    "low": 62.97,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-11T17:07:13Z",
-  "reason": "the 11:55 bar closed above the range high"
+  "checked_at": "2026-11-11T18:06:34Z",
+  "reason": "the 12:50 bar closed above the range high"
 }
