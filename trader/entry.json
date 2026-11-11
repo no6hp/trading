@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "TGTX",
+  "symbol": "NESR",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-11",
   "status": "triggered",
-  "time": "12:55 PM",
-  "bar_start": "12:50",
-  "bar_index": 40,
-  "price": 64.62,
-  "level": 64.47,
+  "time": "2:55 PM",
+  "bar_start": "14:50",
+  "bar_index": 64,
+  "price": 21.57,
+  "level": 21.49,
   "interval": "5m",
   "opening_range": {
-    "high": 64.47,
-    "low": 62.97,
+    "high": 21.49,
+    "low": 20.33,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-11T18:06:34Z",
-  "reason": "the 12:50 bar closed above the range high"
+  "checked_at": "2026-11-11T20:06:26Z",
+  "reason": "the 14:50 bar closed above the range high"
 }
