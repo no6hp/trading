@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "ROIV",
+  "symbol": "NTNX",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-11",
   "status": "triggered",
-  "time": "10:00 AM",
-  "bar_start": "09:55",
-  "bar_index": 5,
-  "price": 41.77,
-  "level": 41.5,
+  "time": "11:00 AM",
+  "bar_start": "10:55",
+  "bar_index": 17,
+  "price": 60.55,
+  "level": 60.5,
   "interval": "5m",
   "opening_range": {
-    "high": 41.5,
-    "low": 40.92,
+    "high": 60.5,
+    "low": 59.83,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-11T15:08:21Z",
-  "reason": "the 9:55 bar closed above the range high"
+  "checked_at": "2026-11-11T16:07:44Z",
+  "reason": "the 10:55 bar closed above the range high"
 }
