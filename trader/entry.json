@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "NTNX",
+  "symbol": "BOBS",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-11",
   "status": "triggered",
-  "time": "11:00 AM",
-  "bar_start": "10:55",
-  "bar_index": 17,
-  "price": 60.55,
-  "level": 60.5,
+  "time": "12:00 PM",
+  "bar_start": "11:55",
+  "bar_index": 29,
+  "price": 21.45,
+  "level": 21.38,
   "interval": "5m",
   "opening_range": {
-    "high": 60.5,
-    "low": 59.83,
+    "high": 21.38,
+    "low": 20.95,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-11T16:07:44Z",
-  "reason": "the 10:55 bar closed above the range high"
+  "checked_at": "2026-11-11T17:07:13Z",
+  "reason": "the 11:55 bar closed above the range high"
 }
