@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "RPRX",
+  "symbol": "ROIV",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-10",
+  "date": "2026-11-11",
   "status": "triggered",
-  "time": "1:55 PM",
-  "bar_start": "13:50",
-  "bar_index": 52,
-  "price": 68.92,
-  "level": 68.86,
+  "time": "10:00 AM",
+  "bar_start": "09:55",
+  "bar_index": 5,
+  "price": 41.77,
+  "level": 41.5,
   "interval": "5m",
   "opening_range": {
-    "high": 68.86,
-    "low": 68.19,
+    "high": 41.5,
+    "low": 40.92,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-10T19:10:50Z",
-  "reason": "the 13:50 bar closed above the range high"
+  "checked_at": "2026-11-11T15:08:21Z",
+  "reason": "the 9:55 bar closed above the range high"
 }
