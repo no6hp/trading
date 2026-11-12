@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "NESR",
+  "symbol": "PBR",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "status": "triggered",
-  "time": "2:55 PM",
-  "bar_start": "14:50",
-  "bar_index": 64,
-  "price": 21.57,
-  "level": 21.49,
+  "time": "10:05 AM",
+  "bar_start": "10:00",
+  "bar_index": 6,
+  "price": 17.89,
+  "level": 17.82,
   "interval": "5m",
   "opening_range": {
-    "high": 21.49,
-    "low": 20.33,
+    "high": 17.82,
+    "low": 17.64,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-11T20:06:26Z",
-  "reason": "the 14:50 bar closed above the range high"
+  "checked_at": "2026-11-12T15:08:34Z",
+  "reason": "the 10:00 bar closed above the range high"
 }
