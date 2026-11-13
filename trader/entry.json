@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "CLX",
+  "symbol": "TRMK",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-13",
   "status": "triggered",
-  "time": "11:20 AM",
-  "bar_start": "11:15",
-  "bar_index": 21,
-  "price": 109.65,
-  "level": 109.59,
+  "time": "12:05 PM",
+  "bar_start": "12:00",
+  "bar_index": 30,
+  "price": 48.12,
+  "level": 48.09,
   "interval": "5m",
   "opening_range": {
-    "high": 109.59,
-    "low": 108.05,
+    "high": 48.09,
+    "low": 47.19,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-13T16:28:47Z",
-  "reason": "the 11:15 bar closed above the range high"
+  "checked_at": "2026-11-13T17:06:37Z",
+  "reason": "the 12:00 bar closed above the range high"
 }
