@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "TRMK",
+  "symbol": "PFGC",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-13",
   "status": "triggered",
-  "time": "12:05 PM",
-  "bar_start": "12:00",
-  "bar_index": 30,
-  "price": 48.12,
-  "level": 48.09,
+  "time": "1:00 PM",
+  "bar_start": "12:55",
+  "bar_index": 41,
+  "price": 111.29,
+  "level": 111.17,
   "interval": "5m",
   "opening_range": {
-    "high": 48.09,
-    "low": 47.19,
+    "high": 111.17,
+    "low": 110.26,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-13T17:06:37Z",
-  "reason": "the 12:00 bar closed above the range high"
+  "checked_at": "2026-11-13T18:06:02Z",
+  "reason": "the 12:55 bar closed above the range high"
 }
