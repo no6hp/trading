@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "CBRS",
+  "symbol": "FFIV",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-16",
   "status": "triggered",
-  "time": "12:55 PM",
-  "bar_start": "12:50",
-  "bar_index": 40,
-  "price": 103.51,
-  "level": 103.45,
+  "time": "3:00 PM",
+  "bar_start": "14:55",
+  "bar_index": 65,
+  "price": 305.49,
+  "level": 305.46,
   "interval": "5m",
   "opening_range": {
-    "high": 103.45,
-    "low": 99.05,
+    "high": 305.46,
+    "low": 301.65,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-16T18:05:48Z",
-  "reason": "the 12:50 bar closed above the range high"
+  "checked_at": "2026-11-16T20:05:30Z",
+  "reason": "the 14:55 bar closed above the range high"
 }
