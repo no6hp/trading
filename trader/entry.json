@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "GPN",
+  "symbol": "AM",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-16",
   "status": "triggered",
-  "time": "9:55 AM",
-  "bar_start": "09:50",
-  "bar_index": 4,
-  "price": 92.75,
-  "level": 92.23,
+  "time": "11:05 AM",
+  "bar_start": "11:00",
+  "bar_index": 18,
+  "price": 20.47,
+  "level": 20.46,
   "interval": "5m",
   "opening_range": {
-    "high": 92.23,
-    "low": 91.34,
+    "high": 20.46,
+    "low": 20.26,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-16T15:07:34Z",
-  "reason": "the 9:50 bar closed above the range high"
+  "checked_at": "2026-11-16T16:07:38Z",
+  "reason": "the 11:00 bar closed above the range high"
 }
