@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "PFGC",
+  "symbol": "GPN",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-13",
+  "date": "2026-11-16",
   "status": "triggered",
-  "time": "1:00 PM",
-  "bar_start": "12:55",
-  "bar_index": 41,
-  "price": 111.29,
-  "level": 111.17,
+  "time": "9:55 AM",
+  "bar_start": "09:50",
+  "bar_index": 4,
+  "price": 92.75,
+  "level": 92.23,
   "interval": "5m",
   "opening_range": {
-    "high": 111.17,
-    "low": 110.26,
+    "high": 92.23,
+    "low": 91.34,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-13T18:06:02Z",
-  "reason": "the 12:55 bar closed above the range high"
+  "checked_at": "2026-11-16T15:07:34Z",
+  "reason": "the 9:50 bar closed above the range high"
 }
