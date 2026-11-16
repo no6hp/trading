@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "CPRT",
+  "symbol": "CBRS",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-16",
   "status": "triggered",
-  "time": "12:00 PM",
-  "bar_start": "11:55",
-  "bar_index": 29,
-  "price": 32.37,
-  "level": 32.36,
+  "time": "12:55 PM",
+  "bar_start": "12:50",
+  "bar_index": 40,
+  "price": 103.51,
+  "level": 103.45,
   "interval": "5m",
   "opening_range": {
-    "high": 32.36,
-    "low": 31.93,
+    "high": 103.45,
+    "low": 99.05,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-16T17:06:28Z",
-  "reason": "the 11:55 bar closed above the range high"
+  "checked_at": "2026-11-16T18:05:48Z",
+  "reason": "the 12:50 bar closed above the range high"
 }
