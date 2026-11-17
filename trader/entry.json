@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "FA",
+  "symbol": "BSY",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-17",
   "status": "triggered",
-  "time": "12:55 PM",
-  "bar_start": "12:50",
-  "bar_index": 40,
-  "price": 21.41,
-  "level": 21.39,
+  "time": "1:55 PM",
+  "bar_start": "13:50",
+  "bar_index": 52,
+  "price": 44.03,
+  "level": 44.01,
   "interval": "5m",
   "opening_range": {
-    "high": 21.39,
-    "low": 21.07,
+    "high": 44.01,
+    "low": 43.25,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-17T18:06:50Z",
-  "reason": "the 12:50 bar closed above the range high"
+  "checked_at": "2026-11-17T19:07:07Z",
+  "reason": "the 13:50 bar closed above the range high"
 }
