@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "FFIV",
+  "symbol": "CL",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "status": "triggered",
-  "time": "3:00 PM",
-  "bar_start": "14:55",
-  "bar_index": 65,
-  "price": 305.49,
-  "level": 305.46,
+  "time": "9:55 AM",
+  "bar_start": "09:50",
+  "bar_index": 4,
+  "price": 100.86,
+  "level": 100.6,
   "interval": "5m",
   "opening_range": {
-    "high": 305.46,
-    "low": 301.65,
+    "high": 100.6,
+    "low": 99.78,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-16T20:05:30Z",
-  "reason": "the 14:55 bar closed above the range high"
+  "checked_at": "2026-11-17T15:07:04Z",
+  "reason": "the 9:50 bar closed above the range high"
 }
