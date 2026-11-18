@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "BSY",
+  "symbol": "ACM",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-17",
+  "date": "2026-11-18",
   "status": "triggered",
-  "time": "1:55 PM",
-  "bar_start": "13:50",
-  "bar_index": 52,
-  "price": 44.03,
-  "level": 44.01,
+  "time": "9:55 AM",
+  "bar_start": "09:50",
+  "bar_index": 4,
+  "price": 81.02,
+  "level": 80.99,
   "interval": "5m",
   "opening_range": {
-    "high": 44.01,
-    "low": 43.25,
+    "high": 80.99,
+    "low": 79.36,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-17T19:07:07Z",
-  "reason": "the 13:50 bar closed above the range high"
+  "checked_at": "2026-11-18T15:06:59Z",
+  "reason": "the 9:50 bar closed above the range high"
 }
