@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "AXON",
+  "symbol": "VCYT",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-19",
   "status": "triggered",
-  "time": "9:55 AM",
-  "bar_start": "09:50",
-  "bar_index": 4,
-  "price": 321.32,
-  "level": 320.5,
+  "time": "11:05 AM",
+  "bar_start": "11:00",
+  "bar_index": 18,
+  "price": 26.36,
+  "level": 26.33,
   "interval": "5m",
   "opening_range": {
-    "high": 320.5,
-    "low": 305.04,
+    "high": 26.33,
+    "low": 25.67,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-19T15:07:04Z",
-  "reason": "the 9:50 bar closed above the range high"
+  "checked_at": "2026-11-19T16:07:21Z",
+  "reason": "the 11:00 bar closed above the range high"
 }
