@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "LMT",
+  "symbol": "HUM",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-20",
   "status": "triggered",
-  "time": "10:55 AM",
-  "bar_start": "10:50",
-  "bar_index": 16,
-  "price": 577.02,
-  "level": 577.0,
+  "time": "12:00 PM",
+  "bar_start": "11:55",
+  "bar_index": 29,
+  "price": 401.73,
+  "level": 401.4,
   "interval": "5m",
   "opening_range": {
-    "high": 577.0,
-    "low": 571.0,
+    "high": 401.4,
+    "low": 391.5,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-20T16:09:57Z",
-  "reason": "the 10:50 bar closed above the range high"
+  "checked_at": "2026-11-20T17:09:32Z",
+  "reason": "the 11:55 bar closed above the range high"
 }
