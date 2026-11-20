@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "UNH",
+  "symbol": "LMT",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-20",
   "status": "triggered",
-  "time": "10:05 AM",
-  "bar_start": "10:00",
-  "bar_index": 6,
-  "price": 345.38,
-  "level": 345.22,
+  "time": "10:55 AM",
+  "bar_start": "10:50",
+  "bar_index": 16,
+  "price": 577.02,
+  "level": 577.0,
   "interval": "5m",
   "opening_range": {
-    "high": 345.22,
-    "low": 338.24,
+    "high": 577.0,
+    "low": 571.0,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-20T15:11:02Z",
-  "reason": "the 10:00 bar closed above the range high"
+  "checked_at": "2026-11-20T16:09:57Z",
+  "reason": "the 10:50 bar closed above the range high"
 }
