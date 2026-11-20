@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "GIS",
+  "symbol": "UNH",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-19",
+  "date": "2026-11-20",
   "status": "triggered",
-  "time": "12:00 PM",
-  "bar_start": "11:55",
-  "bar_index": 29,
-  "price": 34.04,
-  "level": 34.0,
+  "time": "10:05 AM",
+  "bar_start": "10:00",
+  "bar_index": 6,
+  "price": 345.38,
+  "level": 345.22,
   "interval": "5m",
   "opening_range": {
-    "high": 34.0,
-    "low": 33.54,
+    "high": 345.22,
+    "low": 338.24,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-19T17:10:06Z",
-  "reason": "the 11:55 bar closed above the range high"
+  "checked_at": "2026-11-20T15:11:02Z",
+  "reason": "the 10:00 bar closed above the range high"
 }
