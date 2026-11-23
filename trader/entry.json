@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "UNH",
+  "symbol": "NKE",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-23",
   "status": "triggered",
-  "time": "10:05 AM",
-  "bar_start": "10:00",
-  "bar_index": 6,
-  "price": 333.12,
-  "level": 330.5,
+  "time": "10:55 AM",
+  "bar_start": "10:50",
+  "bar_index": 16,
+  "price": 33.6,
+  "level": 33.49,
   "interval": "5m",
   "opening_range": {
-    "high": 330.5,
-    "low": 319.13,
+    "high": 33.49,
+    "low": 33.04,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-23T15:10:20Z",
-  "reason": "the 10:00 bar closed above the range high"
+  "checked_at": "2026-11-23T16:09:54Z",
+  "reason": "the 10:50 bar closed above the range high"
 }
