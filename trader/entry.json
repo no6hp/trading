@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "HUM",
+  "symbol": "UNH",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-20",
+  "date": "2026-11-23",
   "status": "triggered",
-  "time": "12:00 PM",
-  "bar_start": "11:55",
-  "bar_index": 29,
-  "price": 401.73,
-  "level": 401.4,
+  "time": "10:05 AM",
+  "bar_start": "10:00",
+  "bar_index": 6,
+  "price": 333.12,
+  "level": 330.5,
   "interval": "5m",
   "opening_range": {
-    "high": 401.4,
-    "low": 391.5,
+    "high": 330.5,
+    "low": 319.13,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-20T17:09:32Z",
-  "reason": "the 11:55 bar closed above the range high"
+  "checked_at": "2026-11-23T15:10:20Z",
+  "reason": "the 10:00 bar closed above the range high"
 }
