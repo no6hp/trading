@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "NKE",
+  "symbol": "ALAB",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-23",
   "status": "triggered",
-  "time": "10:55 AM",
-  "bar_start": "10:50",
-  "bar_index": 16,
-  "price": 33.6,
-  "level": 33.49,
+  "time": "11:55 AM",
+  "bar_start": "11:50",
+  "bar_index": 28,
+  "price": 219.58,
+  "level": 219.51,
   "interval": "5m",
   "opening_range": {
-    "high": 33.49,
-    "low": 33.04,
+    "high": 219.51,
+    "low": 205.49,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-23T16:09:54Z",
-  "reason": "the 10:50 bar closed above the range high"
+  "checked_at": "2026-11-23T17:09:40Z",
+  "reason": "the 11:50 bar closed above the range high"
 }
