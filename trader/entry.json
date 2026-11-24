@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "BHP",
+  "symbol": "ROIV",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-24",
   "status": "triggered",
-  "time": "10:00 AM",
-  "bar_start": "09:55",
-  "bar_index": 5,
-  "price": 69.79,
-  "level": 69.78,
+  "time": "2:05 PM",
+  "bar_start": "14:00",
+  "bar_index": 54,
+  "price": 42.45,
+  "level": 42.41,
   "interval": "5m",
   "opening_range": {
-    "high": 69.78,
-    "low": 68.76,
+    "high": 42.41,
+    "low": 40.24,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-24T15:09:53Z",
-  "reason": "the 9:55 bar closed above the range high"
+  "checked_at": "2026-11-24T19:10:14Z",
+  "reason": "the 14:00 bar closed above the range high"
 }
