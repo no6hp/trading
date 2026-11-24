@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "ALAB",
+  "symbol": "BHP",
   "setup": "orb",
   "side": "buy",
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "status": "triggered",
-  "time": "11:55 AM",
-  "bar_start": "11:50",
-  "bar_index": 28,
-  "price": 219.58,
-  "level": 219.51,
+  "time": "10:00 AM",
+  "bar_start": "09:55",
+  "bar_index": 5,
+  "price": 69.79,
+  "level": 69.78,
   "interval": "5m",
   "opening_range": {
-    "high": 219.51,
-    "low": 205.49,
+    "high": 69.78,
+    "low": 68.76,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-23T17:09:40Z",
-  "reason": "the 11:50 bar closed above the range high"
+  "checked_at": "2026-11-24T15:09:53Z",
+  "reason": "the 9:55 bar closed above the range high"
 }
