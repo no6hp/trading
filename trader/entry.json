@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "ASTS",
+  "symbol": "ADSK",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-25",
   "status": "triggered",
-  "time": "11:00 AM",
-  "bar_start": "10:55",
-  "bar_index": 17,
-  "price": 23.63,
-  "level": 23.57,
+  "time": "11:55 AM",
+  "bar_start": "11:50",
+  "bar_index": 28,
+  "price": 247.15,
+  "level": 246.85,
   "interval": "5m",
   "opening_range": {
-    "high": 23.57,
-    "low": 22.5,
+    "high": 246.85,
+    "low": 238.71,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-25T16:10:06Z",
-  "reason": "the 10:55 bar closed above the range high"
+  "checked_at": "2026-11-25T17:10:02Z",
+  "reason": "the 11:50 bar closed above the range high"
 }
