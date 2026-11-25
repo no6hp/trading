@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "CLS",
+  "symbol": "KYMR",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-25",
   "status": "triggered",
-  "time": "12:55 PM",
-  "bar_start": "12:50",
-  "bar_index": 40,
-  "price": 184.04,
-  "level": 183.98,
+  "time": "1:55 PM",
+  "bar_start": "13:50",
+  "bar_index": 52,
+  "price": 173.59,
+  "level": 173.5,
   "interval": "5m",
   "opening_range": {
-    "high": 183.98,
-    "low": 169.54,
+    "high": 173.5,
+    "low": 164.49,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-25T18:09:36Z",
-  "reason": "the 12:50 bar closed above the range high"
+  "checked_at": "2026-11-25T19:09:15Z",
+  "reason": "the 13:50 bar closed above the range high"
 }
