@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "TMUS",
+  "symbol": "ADI",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-27",
   "status": "triggered",
-  "time": "10:50 AM",
-  "bar_start": "10:45",
-  "bar_index": 15,
-  "price": 168.18,
-  "level": 168.15,
+  "time": "11:55 AM",
+  "bar_start": "11:50",
+  "bar_index": 28,
+  "price": 343.61,
+  "level": 343.5,
   "interval": "5m",
   "opening_range": {
-    "high": 168.15,
-    "low": 166.36,
+    "high": 343.5,
+    "low": 336.93,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-27T16:09:57Z",
-  "reason": "the 10:45 bar closed above the range high"
+  "checked_at": "2026-11-27T17:09:30Z",
+  "reason": "the 11:50 bar closed above the range high"
 }
