@@ -1,22 +1,22 @@
 {
   "created_by": "trader-entry",
-  "symbol": "AWK",
+  "symbol": "TMUS",
   "setup": "orb",
   "side": "buy",
   "date": "2026-11-27",
   "status": "triggered",
-  "time": "9:55 AM",
-  "bar_start": "09:50",
-  "bar_index": 4,
-  "price": 153.05,
-  "level": 152.99,
+  "time": "10:50 AM",
+  "bar_start": "10:45",
+  "bar_index": 15,
+  "price": 168.18,
+  "level": 168.15,
   "interval": "5m",
   "opening_range": {
-    "high": 152.99,
-    "low": 151.07,
+    "high": 168.15,
+    "low": 166.36,
     "minutes": 15
   },
   "source": "yahoo",
-  "checked_at": "2026-11-27T15:10:33Z",
-  "reason": "the 9:50 bar closed above the range high"
+  "checked_at": "2026-11-27T16:09:57Z",
+  "reason": "the 10:45 bar closed above the range high"
 }
